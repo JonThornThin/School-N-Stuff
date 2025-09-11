@@ -12,4 +12,5 @@ name=input("what be thy name?")
 age=input("how many years have thee?")
 food=input("what have thou eaten last?")
 age=int(age)
-print("greetings mx.",name,"i hope thou hafth enjoyt thine",food,"thou shall becometh",age+1,"in time coming, i vvish thee a happy early birthday")
+
+print("greetings mx.",name,"i hope thou hafth enjoyt thine",food,"thou vvilt becometh",age+1,"in time coming, i vvish thee a happy early birthday")
