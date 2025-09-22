@@ -17,16 +17,26 @@ from turtle import*
 
 #petal()
 
-sides=input("how many sides are there? ")
+ShapeOrStar=input("are u drawing a SHAPE or STAR? ")
+ShapeOrStar=ShapeOrStar.lower()
+ShapeOrStar=str(ShapeOrStar)
+print()
+print("if star,know stars with an even amount of points look weird")
+sides=input("how many sides/points are there? ")
 sides=int(sides)
+print()
 length=input("what is the length of each side? ")
 length=int(length)
-angle=input("at what angle is each side? ")
-angle=int(angle)
-
-def drawshape():
-    for counter in range(sides):
-        fd(length)
-        right(angle)
+angle=(360/sides)
+           
+def DrawShapeOrStar():
+    if ShapeOrStar=="shape":
+        for counter in range(sides):
+            fd(length)
+            right(angle)
+    elif ShapeOrStar=="star":
+        for counter in range(sides):
+            fd(length)
+            right(180+0.5*angle) #this formula only works for odd numbers
     
-drawshape()
+DrawShapeOrStar()
