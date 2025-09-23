@@ -8,7 +8,6 @@ from turtle import*
 
 #manypointstar()
 
-
 #def petal():
 #    for counter in range(200):
 #        circle(200,359)
@@ -17,17 +16,14 @@ from turtle import*
 
 #petal()
 
-ShapeOrStar=input("are u drawing a SHAPE or STAR? ")
-ShapeOrStar=ShapeOrStar.lower()
-ShapeOrStar=str(ShapeOrStar)
+ShapeOrStar=str(input("are u drawing a SHAPE or STAR? "))
+ShapeOrStar=ShapeOrStar.lower() #ignore capitalisATION FOR VAR
 print()
-print("if star,know stars with an even amount of points look weird")
-sides=input("how many sides/points are there? ")
-sides=int(sides)
+print("if star, know stars with an even amount of points look weird")
+sides=int(input("how many sides/points are there? "))
 print()
-length=input("what is the length of each side? ")
-length=int(length)
-angle=(360/sides)
+length=int(input("what is the length of each side? ")) #int and input on same line wow so good
+angle=(360/sides) #formula for angles to work
            
 def DrawShapeOrStar():
     if ShapeOrStar=="shape":
@@ -38,5 +34,5 @@ def DrawShapeOrStar():
         for counter in range(sides):
             fd(length)
             right(180+0.5*angle) #this formula only works for odd numbers
-    
+
 DrawShapeOrStar()
