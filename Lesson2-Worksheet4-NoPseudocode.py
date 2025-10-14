@@ -9,7 +9,7 @@ print("Between 5-15 characters")
 print("Only letters and numbers")
 print("Must start with a letter")
 print()
-pw=str(input())
+pw=str(input("enter:   "))
 print()
 lpw=pw.lower()
 right=0
@@ -52,12 +52,7 @@ elif start in letter:
     
 #checking all right 
 
-if letandnumright==1:
-    right+=1
-if countright==1:
-    right+=1
-if startright==1:
-    right+=1
+right=letandnumright+countright+startright
 
 print()
 if right==3:
