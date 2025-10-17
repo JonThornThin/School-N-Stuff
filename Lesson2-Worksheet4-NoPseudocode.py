@@ -2,6 +2,58 @@
 # Worksheet 4
 # Problem: Create a username validator
 
+attempt=0
+def password(attempt):
+    pw=str(input("enter:   "))
+    lpw=pw.lower()
+    right=0
+    
+    #checking for right length
+
+    countright=0
+    charcount=0
+    for char in lpw:
+        charcount+=1
+    if charcount>15:
+        print("too long")
+    elif charcount<5:
+        print("too short")
+    else:
+        countright=1
+
+    #checking for only letters and numbers
+
+    letandnum="1234567890qwertyuiopasdfghjklzxcvbnm"
+    letandnumright=0
+    for char in lpw:
+        if char not in letandnum:
+            print("this password has a disallowed character")
+            break
+        else:
+            letandnumright=1
+
+    #checking start letter
+
+    letter="qwertyuiopasdfghjklzxcvbnm"
+    startright=0
+    if (lpw[0]) not in letter:
+        print("the start of the password must be a letter")
+    elif (lpw[0]) in letter:
+        startright=1
+    
+    #checking all right
+
+    right=letandnumright+countright+startright
+
+    print()
+    if right==3:
+        print("everything seems good!")
+        attempt=0
+        return attempt
+    else:
+        attempt+=1
+        return attempt
+
 print("make me a password")
 print()
 print("Must be:")
@@ -9,53 +61,19 @@ print("Between 5-15 characters")
 print("Only letters and numbers")
 print("Must start with a letter")
 print()
-pw=str(input("enter:   "))
-print()
-lpw=pw.lower()
-right=0
+print("you have 3 attemps")
 
-#checking for right length
 
-countright=0
-charcount=0
-for char in pw:
-    charcount+=1
-if charcount>15:
-    print("too long")
-elif charcount<5:
-    print("too short")
-else:
-    countright=1
-
-#checking for only letters and numbers
-
-letandnum="1234567890qwertyuiopasdfghjklzxcvbnm"
-letandnumwrong=0
-letandnumright=0
-for char in lpw:
-    if char not in letandnum:
-        letandnumwrong=1 #made this number cause itd print the dissallowed char message once for every char
+def attempts(attempt):
+    if password(0)==1:
+        print("2 attempts left, try again")
     else:
-        letandnumright=1
-if letandnumwrong==1:
-    print("this password has a disallowed character")
+        return
+    if password(1)==2:
+        print("1 attempts left, try again")
+    else:
+        return
+    if password(2)==3:
+        print("youre going to prison forever now >:(")
 
-#checking start letter
-
-letter="qwertyuiopasdfghjklzxcvbnm"
-start=(lpw[0])
-startright=0
-if start not in letter:
-    print("the start of the password must be a letter")
-elif start in letter:
-    startright=1
-    
-#checking all right 
-
-right=letandnumright+countright+startright
-
-print()
-if right==3:
-    print("everything seems good!")
-else:
-    print("please try another password")
+attempts(attempt)
