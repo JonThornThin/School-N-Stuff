@@ -31,29 +31,32 @@ def section2():
     
     #2.2
     print()
-    pwcount=0 #these bring the count to start to 0
-    right=0
     print("use atleast 8 chars")
-    print("use at least on digit")
+    print("use at least one digit")
     pw=input("make me a password! ")
+    print()
     
     #checks length
+    pwcount=0 #these bring the count to start to 0
+    lenright=0
     for char in pw: #count +1 for each character
         pwcount+=1
     if pwcount<8:
         print("make sure its 8 chars or longer")
     else:
-        right+=1
+        lenright=1
         
     #checks digit need
+    digitright=0
     for char in pw:
         if char.isdigit():
-            right+=1
-            break #stops the for loop after proven boolean
-        else:
-            print("it needs atleast one digit")
-            break
-    if right==2:
+            digitright=1
+            break #stops the for-loop
+    if digitright==0:
+        print("it needs atleast one digit")
+    
+    #checks if all is right
+    if lenright+digitright==2:
         print("all's right!")
 
 
