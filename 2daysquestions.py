@@ -37,11 +37,9 @@ def section2():
     print()
     
     #checks length
-    pwcount=0 #these bring the count to start to 0
+    #these bring the count to start to 0
     lenright=0
-    for char in pw: #count +1 for each character
-        pwcount+=1
-    if pwcount<8:
+    if len(pw)<8:
         print("make sure its 8 chars or longer")
     else:
         lenright=1
@@ -60,5 +58,71 @@ def section2():
         print("all's right!")
 
 
+"""
+input words
+lower word
+count letter
+find first and last space
+extract whats before first and last space
+replace ieaou with *
+"""
+def sec2_3():
+    print()
+    print()
+    wrds=input("tell me a few words ")
+    print()
+    lwrds=wrds.lower()
+    acnt=0
+    for char in lwrds:
+        if char=="a":
+            acnt+=1
+    print("there're", acnt, "A's")
+    
+    print("the first word is \""+ wrds[0:wrds.find(" ")] + "\"") #the plus concatonates the comas together
+    
+    rwrds=wrds[::-1] #revrses the word
+    nwrds=rwrds[0:rwrds.find(" ")] #finds the first word backwards
+    print("the last word is \""+ nwrds[::-1] +"\"") #reverses this word just found
+    
+    print("ok now ima cencor the vowels", wrds.replace("i","*").replace("e","*").replace("a","*").replace("o","*").replace("u","*").replace("I","*").replace("E","*").replace("A","*").replace("O","*").replace("U","*"))
+            
+def grading():
+    gr=int(input("what grade did u get 0-100% "))
+    if gr>100:
+        print("thats suspiciosly high")
+    elif 101>gr>89:
+        print("u got an A")
+    elif 91>gr>79:
+        print("u got a B")
+    elif 81>gr>69:
+        print("u got a C")
+    elif 71>gr>59:
+        print("u got a D")
+    elif 61>gr>-1:
+        print("u got an F")
+    else:
+        print("how did u fail that bad")
+    
+def leapyear():
+    yr=int(input("whats the year? "))
+    if yr%4==0: #by checking for a remainder i am checking if smn is an int
+        if yr%100==0:
+            if yr%400==0: #if divisable by 4, 100 and 400 is leap 
+                print("das a leap year")
+            else: #if is div by 4 and 100 but not 400 is not leap
+                print("not a leap year")
+        else: #if div by 4 but not 100 is leap
+            print("das a leap year")
+    else: #if not div by 4 not leap
+        print("not a leap year")
+
+
+
+
 #section1()
-section2()
+#section2()
+#sec2_3()
+#grading()
+#leapyear()
+        
+#print(isinstance(int(4.0), int))
